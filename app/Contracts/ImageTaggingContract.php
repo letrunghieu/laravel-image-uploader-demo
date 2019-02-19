@@ -11,7 +11,7 @@ namespace App\Contracts;
 
 use App\Models\Image;
 use App\Models\Tag;
-use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 interface ImageTaggingContract
 {
@@ -26,8 +26,8 @@ interface ImageTaggingContract
 
     /**
      * List all images under one tag
-     * @param string $tag
+     * @param Tag $tag
      * @return LengthAwarePaginator
      */
-    function listImagesByTag(string $tag): LengthAwarePaginator;
+    function listImagesByTag(Tag $tag): LengthAwarePaginator;
 }

@@ -10,7 +10,7 @@ namespace App\Contracts;
 
 
 use App\Models\Tag;
-use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 interface TagsContract
 {

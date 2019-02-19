@@ -13,5 +13,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
+    protected $fillable = [
+        'tag_name'
+    ];
 
+    public function images()
+    {
+        return $this->belongsToMany(Image::class, 'image_tag');
+    }
 }

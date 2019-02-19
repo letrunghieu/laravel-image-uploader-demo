@@ -11,7 +11,7 @@ namespace App\Contracts;
 
 use App\Models\Image;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 interface ImageContract
 {
