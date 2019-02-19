@@ -13,7 +13,7 @@ use App\Models\Image;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
-interface ImageContract
+interface ImagesContract
 {
     /**
      * Create a new image from an uploaded file

@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::redirect('/', '/images');
+
+Route::prefix('images')->name('images.')->group(function () {
+    Route::get('/', 'ImageController@index')->name('index');
+    Route::get('/{image}', 'ImageController@show')->name('show');
+    Route::post('/{image}/tags', 'ImageController@addTagToImage')->name('add_tag');
+});
+
+Route::prefix('tags')->name('tags.')->group(function () {
+    Route::get('/', 'TagController@index')->name('index');
+    Route::get('/{tag}', 'TagController@show')->name('show');
 });

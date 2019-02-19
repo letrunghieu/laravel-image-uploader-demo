@@ -9,7 +9,7 @@
 namespace App\Services;
 
 
-use App\Contracts\ImageContract;
+use App\Contracts\ImagesContract;
 use App\Contracts\ImageTaggingContract;
 use App\Contracts\TagsContract;
 use App\Models\Image;
@@ -17,7 +17,7 @@ use App\Models\Tag;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\UploadedFile;
 
-class ImageService implements ImageContract, ImageTaggingContract
+class ImagesService implements ImagesContract, ImageTaggingContract
 {
 
     private $perPage;
@@ -28,7 +28,7 @@ class ImageService implements ImageContract, ImageTaggingContract
     private $tags;
 
     /**
-     * ImageService constructor.
+     * ImagesService constructor.
      * @param $perPage
      * @param TagsContract $tags
      */
