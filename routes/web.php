@@ -15,6 +15,7 @@ Route::redirect('/', '/images');
 
 Route::prefix('images')->name('images.')->group(function () {
     Route::get('/', 'ImageController@index')->name('index');
+    Route::post('/', 'ImageController@upload')->name('upload');
     Route::get('/{image}', 'ImageController@show')->name('show');
     Route::post('/{image}/tags', 'ImageController@addTagToImage')->name('add_tag');
 });

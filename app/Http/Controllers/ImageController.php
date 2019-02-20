@@ -32,6 +32,15 @@ class ImageController extends Controller
         return view('images.show', compact('image'));
     }
 
+    public function upload(Request $request, ImagesContract $imagesContract)
+    {
+        $file = $request->file('file');
+
+        $image = $imagesContract->createFromUpload($file);
+
+        return redirect()->back()->with('image', $image);
+    }
+
     // Add new tag to an image
     public function addTagToImage(Request $request, ImageTaggingContract $imageTaggingContract, Image $image)
     {

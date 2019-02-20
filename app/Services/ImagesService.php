@@ -50,16 +50,17 @@ class ImagesService implements ImagesContract, ImageTaggingContract
         $originalName = $file->getClientOriginalName();
         $extension = $file->guessClientExtension();
         $name = str_random(50);
+        $fileName = "{$name}.{$extension}";
 
         // Save the file information to database
         $image = new Image([
             'original_name' => $originalName,
-            'object_name' => "{$name}.{$extension}"
+            'object_name' => $fileName
         ]);
         $image->save();
 
         // Store the uploaded file to the public/uploads directory
-        $file->storeAs('uploads', '', ['disk' => 'public']);
+        $file->storeAs('uploads', $fileName, ['disk' => 'public']);
 
         return $image;
     }
