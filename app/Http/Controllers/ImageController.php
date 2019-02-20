@@ -42,19 +42,25 @@ class ImageController extends Controller
 
         $image = $imagesContract->createFromUpload($file);
 
-        return redirect()->back()->with('image', $image);
+        return redirect()->back()->with(
+            'success',
+            __('The image :path is uploaded successfully', ['path' => $image->original_name])
+        );
     }
 
     // Add new tag to an image
     public function addTagToImage(Request $request, ImageTaggingContract $imageTaggingContract, Image $image)
     {
         \Validator::make($request->all(), [
-            'tag'=> 'required'
+            'tag' => 'required'
         ])->validate();
         $tag = $request->get('tag');
 
         $newTag = $imageTaggingContract->tagImage($image, $tag);
 
-        return redirect()->back()->with('tag', $newTag);
+        return redirect()->back()->with(
+            'success',
+            __('The image :path is tagged with ":tag"', ['path' => $image->original_name, 'tag' => $newTag->tag_name])
+        );
     }
 }
