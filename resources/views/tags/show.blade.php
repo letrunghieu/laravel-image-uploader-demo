@@ -7,6 +7,6 @@
         <h1>
             {{__('Tag: :tag', ['tag' => $tag->tag_name])}}
         </h1>
-        @include('images._list', ['images' => $tag->images])
+        @include('images._list', ['images' => $images])
     </div>
 @endsection

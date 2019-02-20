@@ -4,6 +4,7 @@
 
 @section('content')
     <div class="container">
+        <h1>{{__('View image')}}</h1>
         <div class="row">
             <div class="col-md-8">
                 <div class="single-image text-center">
@@ -14,7 +15,7 @@
             <div class="col-md-4">
                 <div>
                     <h5>{{$image->original_name}}</h5>
-                    <div>
+                    <div class="text-muted">
                         <span class="key">{{__('Uploaded at:')}}</span>
                         <span class="value">{{$image->created_at->format('Y-m-d H:i:s')}}</span>
                     </div>
@@ -25,6 +26,7 @@
                         <a class="badge badge-secondary" href="{{route('tags.show', [$tag])}}">{{$tag->tag_name}}</a>
                     @endforeach
 
+                    @include('commons._messages')
                     <form action="{{route('images.add_tag', [$image])}}" method="post">
                         @csrf
                         <div class="form-group">

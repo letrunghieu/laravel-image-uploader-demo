@@ -34,6 +34,10 @@ class ImageController extends Controller
 
     public function upload(Request $request, ImagesContract $imagesContract)
     {
+        \Validator::make($request->all(), [
+            'file' => 'required|mimes:jpeg,jpg,png'
+        ])->validate();
+
         $file = $request->file('file');
 
         $image = $imagesContract->createFromUpload($file);
@@ -44,6 +48,9 @@ class ImageController extends Controller
     // Add new tag to an image
     public function addTagToImage(Request $request, ImageTaggingContract $imageTaggingContract, Image $image)
     {
+        \Validator::make($request->all(), [
+            'tag'=> 'required'
+        ])->validate();
         $tag = $request->get('tag');
 
         $newTag = $imageTaggingContract->tagImage($image, $tag);

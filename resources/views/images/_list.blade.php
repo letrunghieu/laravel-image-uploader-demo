@@ -13,7 +13,7 @@
                 @foreach($images as $index => $image)
                     <tr>
                         <td>
-                            {{$index}}
+                            {{$index + $images->firstItem()}}
                         </td>
                         <td>
                             <a href="{{route('images.show', [$image])}}">{{$image->original_name}}</a>
@@ -25,6 +25,11 @@
                 @endforeach
                 </tbody>
             </table>
+        </div>
+        <div class="clearfix">
+            <div class="float-right">
+                {{$images->links()}}
+            </div>
         </div>
     </div>
 </div>

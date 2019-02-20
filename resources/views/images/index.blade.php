@@ -7,6 +7,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <h1 class="display-4">{{__('Upload new image')}}</h1>
+                @include('commons._messages')
                 <form action="{{route('images.upload')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
