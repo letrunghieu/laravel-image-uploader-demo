@@ -30,4 +30,6 @@
             </h4>
         </div>
     </div>
+
+    @include('images._list')
 @endsection

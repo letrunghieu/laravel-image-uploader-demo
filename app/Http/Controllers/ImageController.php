@@ -48,8 +48,6 @@ class ImageController extends Controller
 
         $newTag = $imageTaggingContract->tagImage($image, $tag);
 
-        return response()->json([
-            'tag' => $newTag
-        ]);
+        return redirect()->back()->with('tag', $newTag);
     }
 }
